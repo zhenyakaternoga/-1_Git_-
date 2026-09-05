@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fitness Club — Фитнес-клуб КОММИТ1</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- НАВИГАЦИЯ -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <<a class="navbar-brand" href="#">Fitness Club</a>
+
+    <!-- Бургер кнопка -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#carouselExample">Главная</a></li>
+        <li class="nav-item"><a class="nav-link" href="#tariffs">Тарифы</a></li>
+        <li class="nav-item"><a class="nav-link" href="#faq">Вопросы</a></li>
+        <li class="nav-item"><a class="nav-link" href="#prices">Цены</a></li>
+        <li class="nav-item"><a class="nav-link" href="#form">Запись</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+</nav>
+<!-- КАРУСЕЛЬ -->
+<div id="carouselExample" class="carousel slide mt-3" data-bs-ride="carousel">
+  <div class="carousel-inner">
+
+    <div class="carousel-item active position-relative">
+      <img src="images/gym.jpg" class="d-block w-100" style="height:400px; object-fit:cover; filter:brightness(60%);">
+      <div class="carousel-caption d-block">
+        <h5>Современный зал</h5>
+        <p>Новейшее оборудование и комфортные условия для тренировок</p>
+      </div>
+    </div>
+
+    <div class="carousel-item position-relative">
+      <img src="images/spa.jpg" class="d-block w-100" style="height:400px; object-fit:cover; filter:brightness(60%);">
+      <div class="carousel-caption d-block">
+        <h5>SPA зона</h5>
+        <p>Сауна, массаж и полное расслабление после тренировок</p>
+      </div>
+    </div>
+
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>
+<!-- 11lab -->
+<h2>Расписание тренировок</h2>
+
+<input type="date" id="dateFilter">
+
+<select id="typeFilter">
+  <option value="">Все тренировки</option>
+  <option value="Йога">Йога</option>
+  <option value="Кроссфит">Кроссфит</option>
+  <option value="Плавание">Плавание</option>
+</select>
+
+<input type="number"
+       id="placesFilter"
+       placeholder="Минимум мест">
+
+<hr>
+
+<div id="events"></div>
+
+<div id="registerBlock" style="display:none; margin-top:20px;">
+  <input type="text"
+         id="subscription"
+         placeholder="Номер абонемента">
+
+  <button onclick="registerEvent()">
+    Подтвердить
+  </button>
+</div>
+
+<div id="animation" style="display:none; text-align:center;">
+
+  <svg id="clock" width="80" height="80">
+    <circle cx="40"
+            cy="40"
+            r="30"
+            stroke="black"
+            stroke-width="2"
+            fill="none"/>
+  </svg>
+
+  <h2 id="success" style="display:none;">
+    Записаны!
+  </h2>
+
+</div>
+
+<script src="fitness.js"></script>
+<!-- КАРТОЧКИ -->
+<div class="container mt-5">
+  <h2 class="text-center" id="tariffs">Тарифы</h2>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <img src="images/tariff1.jpg" class="card-img-top">
+        <div class="card-body">Базовый</div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <img src="images/tariff2.jpg" class="card-img-top">
+        <div class="card-body">Стандарт</div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <img src="images/tariff3.jpg" class="card-img-top">
+        <div class="card-body">Премиум</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- АККОРДЕОН -->
+<div class="container mt-5">
+  <h2 id="faq">Вопросы</h2>
+  <div class="accordion" id="accordionExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#collapseOne">Есть ли тренер?</button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse show">
+        <div class="accordion-body">Да, у нас есть профессиональные тренеры.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ТАБЛИЦА -->
+<div class="container mt-5">
+  <h2 id="prices">Цены</h2>
+  <table class="table table-bordered">
+    <tr><th>Тариф</th><th>Цена</th></tr>
+    <tr><td>Базовый</td><td>1000</td></tr>
+    <tr><td>Премиум</td><td>3000</td></tr>
+  </table>
+</div>
+
+<!-- ФОРМА -->
+<div class="container mt-5">
+  <h2 id="form">Записаться</h2>
+  <form>
+    <input type="text" class="form-control mb-3" placeholder="Имя">
+    <input type="email" class="form-control mb-3" placeholder="Email">
+    <button class="btn btn-primary">Отправить</button>
+  </form>
+</div>
+
+<!-- ИКОНКИ -->
+<div class="container mt-5 text-center">
+  <i class="bi bi-heart-fill"></i>
+  <i class="bi bi-person"></i>
+</div>
+
+<!-- ПАГИНАЦИЯ -->
+<div class="container mt-5">
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+  </ul>
+</div>
+
+<!-- ФУТЕР -->
+<footer class="bg-dark text-white text-center p-3 mt-5">© 2026</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
